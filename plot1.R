@@ -24,7 +24,7 @@ pc07 <- subset(pc, Date=="1/2/2007" | Date=="2/2/2007")
 #pc07$datetime <- strptime(paste(pc07$Date, pc07$Time), "%d/%m/%Y %H:%M:%S")
 
 # Construct plot
-png(outFile, width=480, height=480)  # open PNG graphics device
+png(outFile, width=480, height=480, type="cairo")  # open PNG graphics device
 
 gap <- "Global Active Power"
 

@@ -24,9 +24,9 @@ pc07 <- subset(pc, Date=="1/2/2007" | Date=="2/2/2007")
 pc07$datetime <- strptime(paste(pc07$Date, pc07$Time), "%d/%m/%Y %H:%M:%S")
 
 # Construct plots
-png(outFile, width=480, height=480)  # open PNG graphics device
+png(outFile, width=480, height=480, type="cairo")  # open PNG graphics device
 
-par(mfrow=c(2, 2))
+par(mfrow=c(2, 2), lwd=0.65)
 
 with(pc07, {
   ## plot 1
@@ -39,7 +39,7 @@ with(pc07, {
   plot(datetime, Sub_metering_1, col="black", type="l", xlab="", ylab="Energy sub metering")
   lines(datetime, Sub_metering_2, col="red")
   lines(datetime, Sub_metering_3, col="blue")
-  legend("topright", legend=colnames(pc07[7:9]), col=c("black", "red", "blue"), lty=1, bty="n")
+  legend("topright", legend=colnames(pc07[7:9]), col=c("black", "red", "blue"), lty=1, bty="n", cex=0.95)
 
   ## plot 4
   plot(datetime, Global_reactive_power, col="black", type="l")
